@@ -1,24 +1,6 @@
 (function () {
   'use strict';
 
-  var toBuyList = [{
-    name: "cookies",
-    quantity: 10
-  }, {
-    name: "beers",
-    quantity: 5
-  }, {
-    name: "sodas",
-    quantity: 2
-  }, {
-    name: "chocolates",
-    quantity: 4
-  }, {
-    name: "twizzlers",
-    quantity: 20
-  }];
-
-  var boughtList = [];
 
   angular.module('ShoppingListCheckOff', [])
   .controller('ToBuyController', ToBuyController)
@@ -48,8 +30,24 @@
   function ShoppingListCheckOffService() {
     var service = this;
 
-    var itemsToBuy = toBuyList;
-    var boughtItems = boughtList;
+    var itemsToBuy = [{
+      name: "cookies",
+      quantity: 10
+    }, {
+      name: "beers",
+      quantity: 5
+    }, {
+      name: "sodas",
+      quantity: 2
+    }, {
+      name: "chocolates",
+      quantity: 4
+    }, {
+      name: "twizzlers",
+      quantity: 20
+    }];
+
+    var boughtItems = [];
 
     // Move items to bought list
     service.buyItem = function (itemIndex) {
