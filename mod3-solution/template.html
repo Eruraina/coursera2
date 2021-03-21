@@ -1,0 +1,19 @@
+<table class="table table-hover table-responsive display" width="100%">
+  <thead>
+    <th>Short Name</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th class="nosort"></th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in menu.items">
+      <td class="text-center">{{ item.short_name }}</td>
+      <td class="text-center"><strong>{{ item.name }}</strong></td>
+      <td class="text-center">{{ item.description }}</td>
+      <td><button class="btn btn-danger pull-right" ng-click="menu.onRemove({index: $index});">Don't want this one!</button></td>
+    </tr>
+  </tbody>
+</table>
+<div class="alert alert-danger text-center" role="alert" ng-if="menu.isNothingFound()">
+  <strong>Nothing found!</strong>
+</div>
