@@ -83,14 +83,21 @@
         var items = result.data.menu_items;
         foundItems.splice(0, foundItems.length);
 
-        for (var i = 0; i < items.length; i++) {
-          if (items[i].description.toLowerCase().indexOf(searchTerm.toLowerCase()) != 1) {
-            foundItems.push(items[i]);
-          }
-        }
+        foundItems = descriptionFilter(items, searchTerm);
         return foundItems;
       });
     };
+
+    function descriptionFilter(list, searchTerm) {
+      var newList = [];
+
+      for (var i = 0; i < list.length; i++) {
+        if (list[i].description.toLowerCase().indexOf(searchTerm.toLowerCase()) > 0) {
+          newList.push(list[i]);
+        }
+      }
+      return newList;
+    }
 
     service.clear = function() {
       foundItems.splice(0, foundItems.length);
