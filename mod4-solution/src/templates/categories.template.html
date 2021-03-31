@@ -1,20 +1,18 @@
 <a ui-sref="home">Home</a> &lt; <span>Categories</span>
 
-<h3>Categories</h3>
-<categories-list items="categoriesList.categories">
-  <table>
+
+  <table class="table table-hover table-responsive display" width="100%">
   	<tr>
   		<th></th>
-  		<th>Category</th>
-  		<th>Short Name</th>
-  		<th>Description</th>
+  		<th class="text-center">CATEGORY</th>
+  		<th class="text-center">SHORT NAME</th>
+  		<th class="text-center">DESCRIPTION</th>
   	</tr>
 
-  	<tr ng-repeat="categorie in categoriesList">
+  	<tr ng-repeat="categories in controller.categoriesList">
   		<td>{{ $index + 1 }}.</td>
-  		<td><a ui-sref="shortname({shortname: categorie.short_name})">{{ categorie.name }}</a></td>
-  		<td>{{ categorie.short_name }}</td>
-  		<td>{{ categorie.special_instructions }}</td>
+  		<td class="text-center"><a ui-sref="itemsList({shortName: categories.short_name})"><strong>{{ categories.name }}</strong></a></td>
+  		<td class="text-center">{{ categories.short_name }}</td>
+  		<td class="text-center">{{ categories.special_instructions }}</td>
   	</tr>
   </table>
-</categories-list>
