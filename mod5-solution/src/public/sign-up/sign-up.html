@@ -1,0 +1,58 @@
+<div class="container">
+  <h3 class="text-center">Sign Up for our newsletter!</h3>
+
+  <div class="alert-success text-center" ng-if="signUpCtrl.submitted">Your information has been saved</div>
+
+  <form name="signUpForm" novalidate>
+  <div class="form-group col-md-6 col-md-offset-3">
+    <label class="form-label" for="firstName">First name*</label>
+    <input type="text" class="form-control" name="firstName" placeholder="First name" required ng-model="signUpCtrl.info.firstName">
+    <span class="alert-danger" ng-if="signUpForm.firstName.$invalid && signUpForm.firstName.$touched">
+       First name is required!
+    </span>
+  </div>
+
+  <div class="form-group col-md-6 col-md-offset-3">
+    <label class="form-label" for="lastName">Last name*</label>
+    <input type="text" class="form-control" name="lastName" placeholder="Last name" required ng-model="signUpCtrl.info.lastName">
+    <span class="alert-danger" ng-if="signUpForm.lastName.$invalid && signUpForm.lastName.$touched">
+       Last name is required!
+    </span>
+  </div>
+
+  <div class="form-group col-md-6 col-md-offset-3">
+    <label class="form-label" for="email">Email address*</label>
+    <input type="email" class="form-control" name="email" placeholder="Email address" required ng-model="signUpCtrl.info.email">
+    <span class="alert-danger" ng-if="signUpForm.$error.email">
+       Must be a valid email address: handle@domain format!
+    </span>
+    <span class="alert-danger" ng-show="signUpForm.email.$error.required && (!signUpForm.email.$pristine || signUpForm.$submitted)">Email is required!
+    </span>
+  </div>
+
+  <div class="form-group col-md-6 col-md-offset-3">
+    <label class="form-label" for="phone">Phone number</label>
+    <input type="text" class="form-control" name="phone" placeholder="Phone number ###-###-####"
+      pattern="(\d{3})-(\d{3})-(\d{4})" ng-model="signUpCtrl.info.phone">
+      <span ng-if="signUpForm.phone.$invalid">
+              Phone number format: ###-###-####
+      </span>
+  </div>
+
+  <div class="form-group col-md-4 col-md-offset-4">
+    <label class="form-label" for="favorite">Favorite dish*</label>
+    <input type="text" class="form-control" name="favorite" placeholder="Favorite dish" ng-model="signUpCtrl.info.favorite"
+      ng-blur="signUpCtrl.validateFavorite()">
+    <span class="alert-danger" ng-show="signUpForm.favorite.$error.required && (!signUpForm.favorite.$pristine || signUpForm.$submitted)">
+          Please enter your favourite dish.
+    </span>
+    <span class="alert-danger" ng-if="signUpCtrl.invalidFavorite">
+            No such menu number exists!
+    </span>
+  </div>
+
+  <div class="col-md-12 text-center">
+    <button type="submit" class="btn btn-success btn-lg" ng-disabled="signUpForm.$invalid" ng-click="signUpCtrl.submit()">Submit</button>
+  </div>
+</form>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+  <h1 class="text-center">My Info</h1>
+
+  <div class="container text-center" ng-if="!myInfoCtrl.info">
+    <h3>Not Signed Up Yet. Sign up Now!</h3>
+    <button class="btn btn-primary btn-lg" type="button" ui-sref="public.signup">Sign Up</button>
+  </div>
+
+  <table class="table table-bordered" ng-if="myInfoCtrl.info">
+      <tr>
+        <th scope="row">First name: </th>
+        <td>{{myInfoCtrl.info.firstName}}</td>
+      </tr>
+
+      <tr>
+        <th scope="row">Last name: </th>
+        <td>{{myInfoCtrl.info.lastName}}</td>
+      </tr>
+
+      <tr>
+        <th scope="row">Email address: </th>
+        <td>{{myInfoCtrl.info.email}}</td>
+      </tr>
+
+      <tr>
+        <th scope="row">Phone number: </th>
+        <td>{{myInfoCtrl.info.phone}}</td>
+      </tr>
+
+      <tr>
+        <th scope="row">Favorite: </th>
+        <td><menu-item menu-item="myInfoCtrl.menuItem"></menu-item></td>
+      </tr>
+  </table>
+
+</div>
